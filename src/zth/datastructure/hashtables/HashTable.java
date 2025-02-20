@@ -89,7 +89,7 @@ public class HashTable {
     map.put("cccc", 10);
     map.put("ddd", 0);
 
-    String[] keys = map.keys();
+    map.keys();
 
     map.get("aaaaaa");
     map.get("bbbbbb");
