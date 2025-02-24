@@ -7,32 +7,27 @@ package cci.linkedlists;
  * k = 2 (return second to the last element)
  * k = 0 (no elemnts)
  */
-public class ReturnKthToLastRecursive {
+public class ReturnKthToLastIterative {
 
-  static class IndexWrapper {
-    int value = 0;
-  }
-
+  // complexity O(n)
+  // space O(1)
   static Node kThToLast(Node head, int k) {
+    Node pointer1 = head;
+    Node pointer2 = head;
 
-    IndexWrapper index = new IndexWrapper();
-
-    return kThToLast(head,k, index);
-  }
-
-  static Node kThToLast(Node head, int k, IndexWrapper index) {
-    if (head == null) {
-      return null;
+    for (int i = 0; i < k; i++) {
+      if (pointer1 == null) {
+        return null; // Out of bound
+      }
+      pointer1 = pointer1.next;
     }
 
-    Node node = kThToLast(head.next, k, index);
-    index.value = index.value + 1;
-
-    if(index.value == k){
-      return head;
+    while (pointer1 != null) {
+      pointer1 = pointer1.next;
+      pointer2 = pointer2.next;
     }
 
-    return node;
+    return pointer2;
   }
 
   public static void main(String[] args) {
@@ -44,7 +39,7 @@ public class ReturnKthToLastRecursive {
     head.next.next.next.next = new Node(4);
     head.next.next.next.next.next = new Node(5);
 
-    System.out.println(kThToLast(head, 0));
+    System.out.println(kThToLast(head, 2));
   }
 
   static class Node {

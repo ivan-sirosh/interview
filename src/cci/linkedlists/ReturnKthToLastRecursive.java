@@ -13,6 +13,8 @@ public class ReturnKthToLastRecursive {
     int value = 0;
   }
 
+  // complexity O(n)
+  // space O(n) - because of recursion
   static Node kThToLast(Node head, int k) {
 
     IndexWrapper index = new IndexWrapper();
