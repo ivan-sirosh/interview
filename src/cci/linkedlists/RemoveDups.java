@@ -2,27 +2,31 @@ package cci.linkedlists;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * Write code to remove duplicates from linked list
+ */
 public class RemoveDups {
 
-  static List removeDups(List list){
+  // complexity O(n)
+  // space O(n)
+  static Node removeDups(Node head) {
 
     Set<Character> buffer = new HashSet<>();
-  
 
-    Node n = list.head;
+    Node prev = null;
+    Node current = head;
 
-    while (n != null) {
-      if(buffer.contains(n.data)){
-
+    while (current != null) {
+      if (buffer.contains(current.data)) {
+        prev.next = current.next;
       } else {
-        
+        buffer.add(current.data);
+        prev = current;
       }
-      
+      current = current.next;
     }
-    
 
-    return list;
+    return head;
   }
 
   static class Node {
@@ -44,40 +48,17 @@ public class RemoveDups {
     }
   }
 
-  static class List {
-    Node head;
-    Node tail;
-    int size = 0;
-
-    Node append(Node node){
-      if(size == 0){
-        head = node;
-        tail = node;
-        size++;
-      } else {
-        tail.next = node;
-        tail = node;
-      }
-
-      size++;
-
-      return tail;
-    }
-
-    @Override
-    public String toString(){
-      return "[" + head + "]";
-    }
-  }
-
   public static void main(String[] args) {
 
-    List list = new List();
+    Node head = new Node('F');
+    head.next = new Node('O');
+    head.next.next = new Node('L');
+    head.next.next.next = new Node('L');
+    head.next.next.next.next = new Node('O');
+    head.next.next.next.next.next = new Node('W');
+    head.next.next.next.next.next.next = new Node('U');
+    head.next.next.next.next.next.next.next = new Node('P');
 
-    for(char c: "FOLLOW UP".toCharArray()){
-        list.append(new Node(c));
-    }
-
-    System.out.println(removeDups(list));
+    System.out.println(removeDups(head));
   }
 }
