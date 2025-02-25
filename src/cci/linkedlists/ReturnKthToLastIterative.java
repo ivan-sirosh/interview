@@ -1,5 +1,7 @@
 package cci.linkedlists;
 
+import cci.ListNode;
+
 /**
  * return `K` th to the last element, (iterator from the end of the list)
  * 
@@ -11,9 +13,9 @@ public class ReturnKthToLastIterative {
 
   // complexity O(n)
   // space O(1)
-  static Node kThToLast(Node head, int k) {
-    Node pointer1 = head;
-    Node pointer2 = head;
+  static ListNode kThToLast(ListNode head, int k) {
+    ListNode pointer1 = head;
+    ListNode pointer2 = head;
 
     for (int i = 0; i < k; i++) {
       if (pointer1 == null) {
@@ -32,27 +34,13 @@ public class ReturnKthToLastIterative {
 
   public static void main(String[] args) {
 
-    Node head = new Node(0);
-    head.next = new Node(1);
-    head.next.next = new Node(2);
-    head.next.next.next = new Node(3);
-    head.next.next.next.next = new Node(4);
-    head.next.next.next.next.next = new Node(5);
+    ListNode head = new ListNode(0);
+    head.next = new ListNode(1);
+    head.next.next = new ListNode(2);
+    head.next.next.next = new ListNode(3);
+    head.next.next.next.next = new ListNode(4);
+    head.next.next.next.next.next = new ListNode(5);
 
     System.out.println(kThToLast(head, 2));
-  }
-
-  static class Node {
-    Node next = null;
-    int data;
-
-    Node(int data) {
-      this.data = data;
-    }
-
-    @Override
-    public String toString() {
-      return "'" + data + "' -> " + next;
-    }
   }
 }

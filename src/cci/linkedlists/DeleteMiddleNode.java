@@ -1,15 +1,17 @@
 package cci.linkedlists;
 
+import cci.ListNode;
+
 public class DeleteMiddleNode {
 
-  static Node deleteMiddle(Node head) {
+  static ListNode deleteMiddle(ListNode head) {
     if (head == null) {
       return null;
     }
 
-    Node prev = null;
-    Node slow = head;
-    Node fast = head;
+    ListNode prev = null;
+    ListNode slow = head;
+    ListNode fast = head;
 
     while (fast != null && fast.next != null) {
       prev = slow;
@@ -24,27 +26,13 @@ public class DeleteMiddleNode {
 
   public static void main(String[] args) {
 
-    Node head = new Node(0);
-    head.next = new Node(1);
-    head.next.next = new Node(2);
-    head.next.next.next = new Node(3);
-    head.next.next.next.next = new Node(4);
-    head.next.next.next.next.next = new Node(5);
+    ListNode head = new ListNode(0);
+    head.next = new ListNode(1);
+    head.next.next = new ListNode(2);
+    head.next.next.next = new ListNode(3);
+    head.next.next.next.next = new ListNode(4);
+    head.next.next.next.next.next = new ListNode(5);
 
     System.out.println(deleteMiddle(head));
-  }
-
-  static class Node {
-    Node next = null;
-    int data;
-
-    Node(int data) {
-      this.data = data;
-    }
-
-    @Override
-    public String toString() {
-      return "'" + data + "' -> " + next;
-    }
   }
 }
