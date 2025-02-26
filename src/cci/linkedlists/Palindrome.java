@@ -1,9 +1,5 @@
 package cci.linkedlists;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-
 import cci.ListNode;
 
 public class Palindrome {
@@ -11,8 +7,6 @@ public class Palindrome {
   static boolean isPalindrome(ListNode head) {
     ListNode slow = head;
     ListNode fast = head;
-
-    ListNode middle = null;
 
     while (fast != null && fast.next != null) {
       slow = slow.next;
