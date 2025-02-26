@@ -54,17 +54,12 @@ public class ReverseLinkedList {
 
   static ListNode reverseList(ListNode head) {
     ListNode prev = null;
-    ListNode current = head;
+    while (head != null) {
 
-    while (current != null) {
-
-      ListNode next = current.next;
-
-      current.next = prev;
-
-      prev = current;
-      current = next;
-
+      ListNode next = head.next;
+      head.next = prev;
+      prev = head;
+      head = next;
     }
 
     return prev;
