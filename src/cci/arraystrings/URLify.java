@@ -32,7 +32,7 @@ public class URLify {
   public static void main(String[] args) {
 
     char[] str = "MR John Smith   ".toCharArray();
-        repalceSpaces(str, 13);
+    repalceSpaces(str, 13);
 
     System.out.println(str);
   }
