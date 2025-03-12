@@ -38,12 +38,23 @@ public class LinkedList {
     tail = head;
 
     while (current != null) {
+      // prv     cur    nxt
+      // null    [0] -> [1] -> [2] -> [3] -> null
+      // null <- [0]    [1] -> [2] -> [3] -> null
       LinkedListNode next = current.next; // Store next node
       current.next = prev; // Reverse link
-      
-      // process moving
+
+      //         prv    cur    nxt
+      // null <- [0]    [1] -> [2] -> [3] -> null
       prev = current; // Move prev forward
       current = next; // Move current forward
+
+      // next opertaions will be 
+      //         prv    cur    nxt
+      // null <- [0]    [1] -> [2] -> [3] -> null
+      // null <- [0] <- [1]    [2] -> [3] -> null
+      //                prv    cur    nxt
+      // null <- [0] <- [1]    [2] -> [3] -> null
     }
 
     head = prev; // Update head to the new first node
